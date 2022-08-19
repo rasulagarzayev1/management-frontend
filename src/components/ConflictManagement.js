@@ -62,19 +62,18 @@ function ConflictManagement() {
 
 	const onFormSubmit = (e) => {
 		e.preventDefault();
-		setFilteredUserStories(
-			filteredUserStories.map((object) => {
-				return {
-					...object,
-					StakeholderMotivation: object.StakeholderMotivation * e.target.StakeholderMotivation.value,
-					BusinessMotivation: object.BusinessMotivation * e.target.BusinessMotivation.value,
-					StrategicMotivation: object.StrategicMotivation * e.target.StrategicMotivation.value,
-				};
-			}),
-		);
-		sortByTwo(filteredUserStories);
+		const newFilteredArr = filteredUserStories.map((object) => {
+			return {
+				...object,
+				StakeholderMotivation: object.StakeholderMotivation * e.target.StakeholderMotivation.value,
+				BusinessMotivation: object.BusinessMotivation * e.target.BusinessMotivation.value,
+				StrategicMotivation: object.StrategicMotivation * e.target.StrategicMotivation.value,
+			};
+		});
+
+		sortByTwo(newFilteredArr);
 		setIsModalOpen(true);
-		setSelectedStoryContent(filteredUserStories[filteredUserStories.length - 1].Content);
+		setSelectedStoryContent(newFilteredArr[newFilteredArr.length - 1].Content);
 	};
 
 	const sortByTwo = (arr = []) => {
