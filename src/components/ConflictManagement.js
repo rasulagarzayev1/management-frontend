@@ -122,8 +122,8 @@ function ConflictManagement() {
 			)}
 			{filteredUserStories && filteredUserStories.length === 1 && (
 				<div>
-					<Table data={filteredUserStories} columns={columns} />
 					<p className="filtering-info">There is no conflict</p>
+					<Table data={filteredUserStories} columns={columns} />
 				</div>
 			)}
 		</div>
